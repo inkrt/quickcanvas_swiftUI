@@ -17,6 +17,8 @@
 		EC7A103E2C3A2D5000C149B0 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A103D2C3A2D5000C149B0 /* OrderView.swift */; };
 		EC7A10402C3A3D5600C149B0 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A103F2C3A3D5600C149B0 /* AnswerView.swift */; };
 		EC7A10422C3A754900C149B0 /* DivideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A10412C3A754900C149B0 /* DivideView.swift */; };
+		EC8C88442C4CA3E1003B1038 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C88432C4CA3E1003B1038 /* ViewModel.swift */; };
+		ECB850C42C4CDD580003168A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB850C32C4CDD580003168A /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		EC7A103D2C3A2D5000C149B0 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		EC7A103F2C3A3D5600C149B0 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		EC7A10412C3A754900C149B0 /* DivideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideView.swift; sourceTree = "<group>"; };
+		EC8C88432C4CA3E1003B1038 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ECB850C32C4CDD580003168A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +69,13 @@
 			children = (
 				EC4EA3012C27CF8E0004FB71 /* QuickCanvasApp.swift */,
 				EC4EA3032C27CF8E0004FB71 /* ContentView.swift */,
+				EC8C88432C4CA3E1003B1038 /* ViewModel.swift */,
 				EC4EA3112C27F7130004FB71 /* PlayModeView.swift */,
 				EC7A103B2C3A2CB400C149B0 /* PlayerView.swift */,
 				EC7A10412C3A754900C149B0 /* DivideView.swift */,
 				EC4EA30F2C27E3EF0004FB71 /* OdaiView.swift */,
 				EC7A103D2C3A2D5000C149B0 /* OrderView.swift */,
+				ECB850C32C4CDD580003168A /* DrawView.swift */,
 				EC7A103F2C3A3D5600C149B0 /* AnswerView.swift */,
 				EC4EA3052C27CF8F0004FB71 /* Assets.xcassets */,
 				EC4EA3072C27CF8F0004FB71 /* Preview Content */,
@@ -156,10 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC4EA3102C27E3EF0004FB71 /* OdaiView.swift in Sources */,
+				EC8C88442C4CA3E1003B1038 /* ViewModel.swift in Sources */,
 				EC4EA3042C27CF8E0004FB71 /* ContentView.swift in Sources */,
 				EC7A10402C3A3D5600C149B0 /* AnswerView.swift in Sources */,
 				EC7A10422C3A754900C149B0 /* DivideView.swift in Sources */,
 				EC4EA3022C27CF8E0004FB71 /* QuickCanvasApp.swift in Sources */,
+				ECB850C42C4CDD580003168A /* DrawView.swift in Sources */,
 				EC7A103E2C3A2D5000C149B0 /* OrderView.swift in Sources */,
 				EC7A103C2C3A2CB400C149B0 /* PlayerView.swift in Sources */,
 				EC4EA3122C27F7130004FB71 /* PlayModeView.swift in Sources */,

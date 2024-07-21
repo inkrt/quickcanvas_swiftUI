@@ -8,27 +8,31 @@
 import SwiftUI
 
 struct OrderView: View {
+    @EnvironmentObject var viewModel:
+    ViewModel
     var body: some View {
         VStack{
             HStack{
                 
-                Text("◯番目の人は")
+                Text("\(viewModel.turn + 1)番目の人は")
                     .font(.system(size: 100))
                    
             }
             HStack{ 
-                Text("????")
-                    .font(.system(size: 200))
+                Text(viewModel.drawers[viewModel.turn].name)
+                    .font(.system(size: 150))
+                    .foregroundStyle(viewModel.drawers[viewModel.turn].color)
                 
                 Text("さんです！")
                     .font(.system(size: 100))
                     
             }
             HStack{
-                Text("◯秒で描いてください")
+                Text("\(viewModel.time)秒で描いてください")
                     .font(.system(size:80))
             }
             Button{
+                viewModel.nextStep()
             }label: {
                 Text("描く")
                     .font(.system(size: 70))
@@ -41,8 +45,17 @@ struct OrderView: View {
         }
         .padding(.vertical, 50)
         .padding(.horizontal, 100)
+        
+        .onAppear{
+            viewModel.selectTime()
+        }
     }
+
 }
 #Preview {
-    OrderView()
+    let viewModel = ViewModel()
+    viewModel.players = Player.preview
+    viewModel.dividePlayers()
+    return OrderView()
+        .environmentObject(viewModel)
 }

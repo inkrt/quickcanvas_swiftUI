@@ -8,39 +8,49 @@
 import SwiftUI
 
 struct PlayerView: View {
+    @EnvironmentObject var viewModel:
+    ViewModel
+    
+    
+    
     var body: some View {
         NavigationStack {
             HStack{
-                VStack{
-                    Button {
-                        
-                    } label: {
-                        Text("?")
-                            .font(.system(size: 150))
-                            .padding(.vertical, 50)
-                            .padding(.horizontal, 100)
-                            .background(.blue)
-                            .clipShape(RoundedRectangle(cornerRadius: 70))
-                            .foregroundStyle(.white)
+                ForEach(0..<viewModel.players.count, id: \.self) { index in
+                    VStack{
+                        Button {
+                        } label: {
+                            Text("?")
+                                .font(.system(size: 150))
+                                .padding(.vertical, 50)
+                                .padding(.horizontal, 100)
+                                .background(.blue)
+                                .clipShape(RoundedRectangle(cornerRadius: 70))
+                                .foregroundStyle(.white)
+                            
+                        }
+                        TextField("名前を入力", text: $viewModel.players[index].name)
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 50))
+                        Button{
+                            
+                        }label: {
+                            Text("色")
+                                .font(.system(size: 40))
+                                .padding(.vertical, 30)
+                                .padding(.horizontal, 40)
+                                .background(viewModel.players[index].color)
+                                .clipShape(RoundedRectangle(cornerRadius: 70))
+                                .foregroundStyle(.white)
+                        }
                         
                     }
-                    Text("名前")
-                        .font(.system(size: 50))
-                    Button{
-                        
-                    }label: {
-                        Text("色")
-                            .font(.system(size: 40))
-                            .padding(.vertical, 30)
-                            .padding(.horizontal, 40)
-                            .background(.blue)
-                            .clipShape(RoundedRectangle(cornerRadius: 70))
-                            .foregroundStyle(.white)
-                    }
-                    
                 }
+                
                 Button {
-                    
+                    viewModel.players.append(Player(name: "",
+                                                    color: Player.colors[viewModel.players.count],
+                                          icon: Image(systemName: "questionmark")))
                 } label: {
                     Text("追加")
                         .font(.system(size: 70))
@@ -51,10 +61,13 @@ struct PlayerView: View {
                         .foregroundStyle(.white)
                        
                 }
+                .disabled(viewModel.players.count >= 4)
                 .padding(.horizontal, 100)
                 
             
-                    NavigationLink(destination:DivideView()) {
+                Button{
+                    viewModel.nextStep()
+                }label: {
                         Text("始める")
                             .font(.system(size: 70))
                             .padding(30)
@@ -87,4 +100,5 @@ struct PlayerView: View {
 
 #Preview {
     PlayerView()
+        .environmentObject(ViewModel())
 }

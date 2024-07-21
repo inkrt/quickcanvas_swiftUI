@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PlayModeView: View {
+    @EnvironmentObject var viewModel:
+    ViewModel
     var body: some View {
-        
+    
         NavigationStack {
             VStack{
                 Text("QiuckCanvas")
@@ -17,7 +19,9 @@ struct PlayModeView: View {
                     .font(.system(size: 180))
                 
         
-                NavigationLink(destination:PlayerView()) {
+                Button{
+                    viewModel.nextStep()
+                }label:{
                               Text("友達と遊ぶ")
                         .font(.system(size: 70))
                         .padding(30)
@@ -49,4 +53,5 @@ struct PlayModeView: View {
 
 #Preview {
     PlayModeView()
+        .environmentObject(ViewModel())
 }

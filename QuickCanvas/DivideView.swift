@@ -8,11 +8,104 @@
 import SwiftUI
 
 struct DivideView: View {
+    @EnvironmentObject var viewModel:
+    ViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack{
+            VStack {
+                Text("描く人")
+                    .font(.system(size: 90))
+                HStack {
+                    ForEach(0..<viewModel.drawers.count, id: \.self) { index in
+                        VStack{
+                            Button {
+                            } label: {
+                                Text("?")
+                                    .font(.system(size: 150))
+                                    .padding(.vertical, 50)
+                                    .padding(.horizontal, 100)
+                                    .background(.blue)
+                                    .clipShape(RoundedRectangle(cornerRadius: 70))
+                                    .foregroundStyle(.white)
+                                
+                            }
+                            Text(viewModel.drawers[index].name)
+                                .font(.system(size: 50))
+                            
+                            Button{
+                                
+                            }label: {
+                                Text("色")
+                                    .font(.system(size: 40))
+                                    .padding(.vertical, 30)
+                                    .padding(.horizontal, 40)
+                                    .background(viewModel.drawers[index].color)
+                                    .clipShape(RoundedRectangle(cornerRadius: 70))
+                                    .foregroundStyle(.white)
+                            }
+                            
+                            
+                        }
+                        
+                    }
+                }
+            }
+            VStack{
+                Text("答える人")
+                    .font(.system(size: 90))
+                VStack{
+                    Button {
+                    } label: {
+                        Text("?")
+                            .font(.system(size: 150))
+                            .padding(.vertical, 50)
+                            .padding(.horizontal, 100)
+                            .background(.blue)
+                            .clipShape(RoundedRectangle(cornerRadius: 70))
+                            .foregroundStyle(.white)
+                        
+                    }
+                    Text(viewModel.answerer.name)
+                        .font(.system(size: 50))
+                    
+                    Button{
+                        
+                    }label: {
+                        Text("色")
+                            .font(.system(size: 40))
+                            .padding(.vertical, 30)
+                            .padding(.horizontal, 40)
+                            .background(viewModel.answerer.color)
+                            .clipShape(RoundedRectangle(cornerRadius: 70))
+                            .foregroundStyle(.white)
+                    }
+                    
+                    
+                }
+            }
+            Button{
+                viewModel.nextStep()
+            }label: {
+                Text("次へ")
+                    .font(.system(size: 40))
+                    .padding(.vertical, 30)
+                    .padding(.horizontal, 40)
+                    .background(.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 70))
+                    .foregroundStyle(.white)
+           
+            }
+        }
+        .onAppear{
+            viewModel.dividePlayers()
+        }
     }
 }
 
 #Preview {
-    DivideView()
+    let viewModel = ViewModel()
+    viewModel.players = Player.preview
+    return DivideView()
+        .environmentObject(viewModel)
 }

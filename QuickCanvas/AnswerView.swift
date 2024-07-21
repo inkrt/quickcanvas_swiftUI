@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AnswerView: View {
+    @EnvironmentObject var viewModel:
+    ViewModel
     var body: some View {
         VStack{
             Text("合ってますか？")
@@ -46,4 +48,5 @@ struct AnswerView: View {
 
 #Preview {
     AnswerView()
+        .environmentObject(ViewModel())
 }

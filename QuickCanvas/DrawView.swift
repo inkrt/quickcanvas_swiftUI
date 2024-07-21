@@ -1,22 +1,23 @@
 //
-//  ContentView.swift
+//  DrawView.swift
 //  QuickCanvas
 //
-//  Created by 舛水葵 on 2024/06/23.
+//  Created by 舛水葵 on 2024/07/21.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct DrawView: View {
     @EnvironmentObject var viewModel:
     ViewModel
     var body: some View {
-        viewModel.step.view
-            .environmentObject(viewModel)
+        Button("終わり！"){
+            viewModel.finishDrawing()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    DrawView()
         .environmentObject(ViewModel())
 }

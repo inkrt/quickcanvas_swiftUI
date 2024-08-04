@@ -42,6 +42,7 @@ struct AnswerView: View {
                 }
                 Spacer()
             }
+         
         }
     }
 }

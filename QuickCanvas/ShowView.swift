@@ -20,8 +20,21 @@ struct ShowView: View {
             HStack{
                 ForEach(0..<viewModel.drawImages.count, id: \.self) {index in
                     Image(uiImage: viewModel.drawImages[index])
+                        .resizable()
+                        .scaledToFit()
                 }
             }
+                Button{
+                    viewModel.nextStep()
+                }label:{
+                              Text("答える")
+                        .font(.system(size: 50))
+                        .padding(30)
+                        .background(.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 40))
+                        .foregroundStyle(.white)
+                          }
+        
         }
     }
 }

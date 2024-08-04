@@ -28,7 +28,7 @@ struct OrderView: View {
                     
             }
             HStack{
-                Text("\(viewModel.time)秒で描いてください")
+                Text("\(Int(viewModel.time))秒で描いてください")
                     .font(.system(size:80))
             }
             Button{

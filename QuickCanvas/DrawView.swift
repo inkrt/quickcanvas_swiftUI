@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct DrawView: View {
+    
     @EnvironmentObject var viewModel:
     ViewModel
     var body: some View {
-        Button("終わり！"){
-            viewModel.finishDrawing()
+        ZStack{
+            CanvasView(canvasView: $viewModel.canvasView)
+                .environmentObject(viewModel)
+            VStack{
+                HStack{
+                    Spacer()
+                    Button("終わり！"){
+                        viewModel.finishDrawing()
+                    }
+                }
+                Spacer()
+            }
+            .padding()
         }
     }
 }

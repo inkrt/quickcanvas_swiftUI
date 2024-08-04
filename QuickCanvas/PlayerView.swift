@@ -48,7 +48,7 @@ struct PlayerView: View {
                 }
                 
                 Button {
-                    viewModel.players.append(Player(name: "",
+                    viewModel.players.append(Player(name: "Player\(viewModel.players.count + 1)",
                                                     color: Player.colors[viewModel.players.count],
                                           icon: Image(systemName: "questionmark")))
                 } label: {

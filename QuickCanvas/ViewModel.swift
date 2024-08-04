@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PencilKit
 
 enum Step: Int {
     case modelSelect
@@ -14,8 +15,8 @@ enum Step: Int {
     case odaiSelect
     case readySelect
     case drawSelect
+    case showSelect
     case answerSelect
-    case confirmSelect
     case saveSelect
     case playAgeinSelect
     
@@ -42,10 +43,10 @@ enum Step: Int {
             OrderView()
         case .drawSelect:
             DrawView()
+        case .showSelect:
+            ShowView()
         case .answerSelect:
             AnswerView()
-        case .confirmSelect:
-            EmptyView()
         case .saveSelect:
             EmptyView()
         case .playAgeinSelect:
@@ -77,7 +78,12 @@ class ViewModel: NSObject, ObservableObject {
     @Published var odai: String = ""
     @Published var turn: Int = 0
     @Published var time: Int = 0
+    @Published var drawImages: [UIImage] = []
     
+    
+    @Published var canvasView = PKCanvasView()
+    
+
     func nextStep() {
         step = step.next!
     }
@@ -96,6 +102,8 @@ class ViewModel: NSObject, ObservableObject {
         time = Int.random(in: 10...20)
     }
     func finishDrawing(){
+        drawImages.append(canvasImage())
+        canvasView.drawing = PKDrawing()
         if turn < drawers.count - 1
         {
             previousStep()
@@ -106,5 +114,7 @@ class ViewModel: NSObject, ObservableObject {
       
         
     }
-    
+    func canvasImage() -> UIImage {
+        canvasView.drawing.image(from: canvasView.drawing.bounds, scale: 1)
+    }
 }

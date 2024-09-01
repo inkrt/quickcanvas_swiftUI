@@ -26,9 +26,11 @@ struct DrawView: View {
             }
             .padding()
         }
-        Gauge(value: viewModel.remainingTime, in: 0...viewModel.time){
+        Gauge(value: viewModel.remainingTime, in: 0...viewModel.time)
+        {
             Text("")
         }
+        .tint(viewModel.drawers[viewModel.turn].color)
         .labelsHidden()
         
     
@@ -77,13 +79,13 @@ struct DrawView: View {
                 }
             }
         }
-        .padding(.vertical, 10)
-        .onAppear{
-      viewModel.startTimer()
-            viewModel.updateTool()
-            
-            
-        }
+//        .padding(.vertical, 10)
+//    .onAppear{
+//      viewModel.startTimer()
+//            viewModel.updateTool()
+//            
+//            
+//        }
     
         
     }
@@ -92,7 +94,8 @@ struct DrawView: View {
 #Preview {
     let viewModel = ViewModel()
     viewModel.drawers = Player.preview
-    viewModel.time = 20
+    viewModel.time = 15
+    viewModel.remainingTime = 15
     return DrawView()
         .environmentObject(viewModel)
 }

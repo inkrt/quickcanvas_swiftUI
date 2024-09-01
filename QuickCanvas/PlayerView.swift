@@ -15,7 +15,9 @@ struct PlayerView: View {
     
     var body: some View {
         NavigationStack {
+            
             HStack{
+                
                 ForEach(0..<viewModel.players.count, id: \.self) { index in
                     VStack{
                         Button {
@@ -35,13 +37,12 @@ struct PlayerView: View {
                         Button{
                             
                         }label: {
-                            Text("色")
+                            Image(systemName: "scribble.variable")
                                 .font(.system(size: 40))
                                 .padding(.vertical, 30)
                                 .padding(.horizontal, 40)
-                                .background(viewModel.players[index].color)
                                 .clipShape(RoundedRectangle(cornerRadius: 70))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(viewModel.players[index].color)
                         }
                         
                     }
@@ -50,25 +51,28 @@ struct PlayerView: View {
                 Button {
                     viewModel.players.append(Player(name: "Player\(viewModel.players.count + 1)",
                                                     color: Player.colors[viewModel.players.count],
-                                          icon: Image(systemName: "questionmark")))
+                                                    icon: Image(systemName: "questionmark")))
                 } label: {
-                    Text("追加")
+                    Image(systemName: "plus")
                         .font(.system(size: 70))
-                        .padding(.vertical, 50)
-                        .padding(.horizontal, 50)
-                        .background(.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 70))
+                        .padding(.vertical, 30)
+                        .padding(.horizontal, 30)
+                        .background(.gray)
+                        .clipShape(RoundedRectangle(cornerRadius: 200))
                         .foregroundStyle(.white)
-                       
+                    
                 }
                 .disabled(viewModel.players.count >= 4)
                 .padding(.horizontal, 100)
+            }
                 
-            
                 Button{
                     viewModel.nextStep()
                 }label: {
-                        Text("始める")
+                    HStack{
+                        Text("Next")
+                        Image(systemName: "chevron.forward")
+                    }
                             .font(.system(size: 70))
                             .padding(30)
                             .background(.blue)
@@ -93,7 +97,7 @@ struct PlayerView: View {
                 //            }
                 //
                 //        }
-            }
+            
         }
     }
 }

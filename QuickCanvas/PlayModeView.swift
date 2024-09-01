@@ -23,10 +23,10 @@ struct PlayModeView: View {
                     viewModel.nextStep()
                 }label:{
                               Text("友達と遊ぶ")
-                        .font(.system(size: 70))
+                        .font(.system(size: 50))
                         .padding(30)
                         .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 40))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                         .foregroundStyle(.white)
                           }
                 

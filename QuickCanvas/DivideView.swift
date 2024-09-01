@@ -32,19 +32,19 @@ struct DivideView: View {
                             }
                             Text(viewModel.drawers[index].name)
                                 .font(.system(size: 50))
+                                .foregroundStyle(viewModel.drawers[index].color)
                             
-                            Button{
-                                
-                            }label: {
-                                Text("色")
-                                    .font(.system(size: 40))
-                                    .padding(.vertical, 30)
-                                    .padding(.horizontal, 40)
-                                    .background(viewModel.drawers[index].color)
-                                    .clipShape(RoundedRectangle(cornerRadius: 70))
-                                    .foregroundStyle(.white)
-                            }
-                            
+//                            Button{
+//                                
+//                            }label: {
+//                                Image(systemName: "scribble.variable")
+//                                    .font(.system(size: 40))
+//                                    .padding(.vertical, 30)
+//                                    .padding(.horizontal, 40)
+//                                    .clipShape(RoundedRectangle(cornerRadius: 70))
+//                                    .foregroundStyle(viewModel.drawers[index].color)
+//                            }
+//                            
                             
                         }
                         
@@ -68,18 +68,18 @@ struct DivideView: View {
                     }
                     Text(viewModel.answerer.name)
                         .font(.system(size: 50))
+                        .foregroundStyle(viewModel.answerer.color)
                     
-                    Button{
-                        
-                    }label: {
-                        Text("色")
-                            .font(.system(size: 40))
-                            .padding(.vertical, 30)
-                            .padding(.horizontal, 40)
-                            .background(viewModel.answerer.color)
-                            .clipShape(RoundedRectangle(cornerRadius: 70))
-                            .foregroundStyle(.white)
-                    }
+//                    Button{
+//                        
+//                    }label: {
+//                        Image(systemName: "scribble.variable")
+//                            .font(.system(size: 40))
+//                            .padding(.vertical, 30)
+//                            .padding(.horizontal, 40)
+//                            .clipShape(RoundedRectangle(cornerRadius: 70))
+//                            .foregroundStyle(viewModel.answerer.color)
+//                    }
                     
                     
                 }

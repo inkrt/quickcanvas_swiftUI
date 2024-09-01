@@ -34,12 +34,15 @@ struct OrderView: View {
             Button{
                 viewModel.nextStep()
             }label: {
-                Text("描く")
+                HStack{
+                    Text("描く")
+                    Image(systemName: "paintbrush.pointed.fill")
+                }
                     .font(.system(size: 70))
                     .padding(.vertical, 20)
                     .padding(.horizontal, 50)
                     .background(.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 100))
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
                     .foregroundStyle(.white)
             }
         }

@@ -14,49 +14,53 @@ struct OdaiView: View {
         VStack{
             HStack{
                 Text("お題は")
-                    .font(.system(size: 140))
+                    .font(.system(size: 100))
                 Spacer()
             }
-//            .padding(.top, 100)
-//            .padding(.leading, 50)
+            .padding(.top, 30)
+            .padding(.leading, 50)
             ZStack{
                 Text(viewModel.odai)
-                    .font(.system(size: 160))
+                    .font(.system(size: 100))
                     .foregroundStyle(.red)
+                
                 Button {
                     viewModel.selectOdai()
                 } label: {
-                    Text("答える人は見ないでください！")
-                        .font(.system(size: 50))
-                        .padding(.vertical, 80)
-                        .padding(.horizontal, 100)
-                        .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 70))
+                    HStack  {
+                        Text(viewModel.answerer.name)
+                        Text("さんは見ないでください！")
+                    }
+                        .font(.system(size: 45))
+                        .padding(.vertical, 70)
+                        .padding(.horizontal, 80)
+                        .background(.yellow)
+                        .clipShape(RoundedRectangle(cornerRadius: 50))
                         .foregroundStyle(.white)
                     
                 }
                 .opacity(viewModel.odai.isEmpty ? 1 : 0)
             }
             
-            HStack{
-                Spacer()
-                Text("です！")
-                    .font(.system(size: 100))
-            }
+            
             HStack{
                 Spacer()
                 Button{
                     viewModel.nextStep()
                 }label: {
-                    Text("始める")
+                    HStack{
+                        Text("Next")
+                        Image(systemName: "chevron.forward")
+                    }
                         .font(.system(size: 40))
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 80)
-                        .background(.yellow)
-                        .clipShape(RoundedRectangle(cornerRadius: 70))
+                        .padding(.vertical, 40)
+                        .padding(.horizontal, 50)
+                        .background(.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 40))
                         .foregroundStyle(.white)
                 }
             }
+            .padding(.top, 50)
         }
         .padding(.vertical, 50)
         .padding(.horizontal, 100)

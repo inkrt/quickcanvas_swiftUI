@@ -10,6 +10,9 @@ import SwiftUI
 struct OdaiView: View {
     @EnvironmentObject var viewModel:
     ViewModel
+    
+    @State var opened = false
+    
     var body: some View {
         VStack{
             HStack{
@@ -26,6 +29,7 @@ struct OdaiView: View {
                 
                 Button {
                     viewModel.selectOdai()
+                    opened = true
                 } label: {
                     HStack  {
                         Text(viewModel.answerer.name)
@@ -40,6 +44,7 @@ struct OdaiView: View {
                     
                 }
                 .opacity(viewModel.odai.isEmpty ? 1 : 0)
+                .opacity(opened ? 0 : 1)
             }
             
             
@@ -59,6 +64,7 @@ struct OdaiView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 40))
                         .foregroundStyle(.white)
                 }
+                .opacity(opened ? 1 : 0)
             }
             .padding(.top, 50)
         }

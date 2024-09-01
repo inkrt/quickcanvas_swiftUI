@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2B85C52C840E1900E4A0C3 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2B85C42C840E1900E4A0C3 /* ResultView.swift */; };
+		EC2B85C72C84470D00E4A0C3 /* SwiftDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2B85C62C84470D00E4A0C3 /* SwiftDataHandler.swift */; };
+		EC2B85C92C8449C300E4A0C3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2B85C82C8449C300E4A0C3 /* RecordView.swift */; };
 		EC4EA3022C27CF8E0004FB71 /* QuickCanvasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA3012C27CF8E0004FB71 /* QuickCanvasApp.swift */; };
 		EC4EA3042C27CF8E0004FB71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA3032C27CF8E0004FB71 /* ContentView.swift */; };
 		EC4EA3062C27CF8F0004FB71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4EA3052C27CF8F0004FB71 /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC2B85C42C840E1900E4A0C3 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		EC2B85C62C84470D00E4A0C3 /* SwiftDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDataHandler.swift; sourceTree = "<group>"; };
+		EC2B85C82C8449C300E4A0C3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		EC4EA2FE2C27CF8E0004FB71 /* QuickCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4EA3012C27CF8E0004FB71 /* QuickCanvasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickCanvasApp.swift; sourceTree = "<group>"; };
 		EC4EA3032C27CF8E0004FB71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				EC7147312C5F174B00845A38 /* CanvasView.swift */,
 				ECB850C52C4CEB210003168A /* ShowView.swift */,
 				EC7A103F2C3A3D5600C149B0 /* AnswerView.swift */,
+				EC2B85C42C840E1900E4A0C3 /* ResultView.swift */,
+				EC2B85C62C84470D00E4A0C3 /* SwiftDataHandler.swift */,
+				EC2B85C82C8449C300E4A0C3 /* RecordView.swift */,
 				EC4EA3052C27CF8F0004FB71 /* Assets.xcassets */,
 				EC4EA3072C27CF8F0004FB71 /* Preview Content */,
 			);
@@ -167,6 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2B85C92C8449C300E4A0C3 /* RecordView.swift in Sources */,
+				EC2B85C72C84470D00E4A0C3 /* SwiftDataHandler.swift in Sources */,
 				EC4EA3102C27E3EF0004FB71 /* OdaiView.swift in Sources */,
 				EC8C88442C4CA3E1003B1038 /* ViewModel.swift in Sources */,
 				EC7147322C5F174B00845A38 /* CanvasView.swift in Sources */,
@@ -174,6 +185,7 @@
 				EC7A10402C3A3D5600C149B0 /* AnswerView.swift in Sources */,
 				EC7A10422C3A754900C149B0 /* DivideView.swift in Sources */,
 				EC4EA3022C27CF8E0004FB71 /* QuickCanvasApp.swift in Sources */,
+				EC2B85C52C840E1900E4A0C3 /* ResultView.swift in Sources */,
 				ECB850C42C4CDD580003168A /* DrawView.swift in Sources */,
 				EC7A103E2C3A2D5000C149B0 /* OrderView.swift in Sources */,
 				ECB850C62C4CEB210003168A /* ShowView.swift in Sources */,

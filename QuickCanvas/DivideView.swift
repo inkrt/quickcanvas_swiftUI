@@ -97,15 +97,25 @@ struct DivideView: View {
            
             }
         }
-        .onAppear{
+        Button{
             viewModel.dividePlayers()
+        }label: {
+            Image(systemName: "shuffle")
+                .font(.system(size: 40))
+                .padding(.vertical, 30)
+                .padding(.horizontal, 40)
+                .background(Color(.tertiarySystemFill))
+                .clipShape(RoundedRectangle(cornerRadius: 70))
+                .foregroundStyle(.black)
         }
+        
     }
 }
 
 #Preview {
     let viewModel = ViewModel()
     viewModel.players = Player.preview
+    viewModel.dividePlayers()
     return DivideView()
         .environmentObject(viewModel)
 }

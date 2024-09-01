@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E3E1C91B-9BA1-4D4B-9515-25E2983DF795"
-            shouldBeEnabled = "Yes"
+            uuid = "CFC549CF-E108-4E0D-A362-615A7A6327A8"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuickCanvas/PlayerView.swift"
+            filePath = "QuickCanvas/AnswerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -23,17 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "00E27A0D-2602-4203-BEA5-2A1022B00F02"
+            uuid = "9547473B-40F7-4CBC-8453-9BF32CB958E4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuickCanvas/OdaiView.swift"
+            filePath = "QuickCanvas/SwiftDataHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "OdaiView"
-            landmarkType = "14">
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "add(record:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

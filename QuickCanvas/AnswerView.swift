@@ -10,44 +10,73 @@ import SwiftUI
 struct AnswerView: View {
     @EnvironmentObject var viewModel:
     ViewModel
+    
+    @State var opened = false
+    
     var body: some View {
         VStack{
-            Text("合ってますか？")
-                .font(.system(size: 100))
+            Text("答えは")
+                .font(.system(size: 70))
+            
+            ZStack{
+                Text(viewModel.odai)
+                    .font(.system(size: 150))
+                Button {
+                    opened = true
+                } label: {
+                    Image(systemName: "hand.tap.fill")
+                        .font(.system(size: 140))
+                        .padding(.vertical, 60)
+                        .padding(.horizontal, 400)
+                        .background(.yellow)
+                        .clipShape(RoundedRectangle(cornerRadius: 50))
+                        .foregroundStyle(.white)
+                    
+                }
+                .opacity(opened ? 0 : 1)
+            }
+
+            
+            
             HStack{
                 Spacer()
                 Button{
-                    
+                    viewModel.nextStep()
+                    SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
                 }label: {
-                    Text("⚪︎")
-                        .font(.system(size: 140))
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 35)
-                        .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 50))
-                        .foregroundStyle(.white)
+                    HStack{
+                        Text("あってた")
+                        
+                        Image(systemName: "circle")
+                    }
+                        .font(.system(size: 90))
+                        .foregroundStyle(.blue)
                 }
                 Spacer()
     
                 Button{
-                    
+                    viewModel.nextStep()
+                    SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
                 }label: {
-                    Text("×")
-                        .font(.system(size: 150))
-                        .padding(.vertical, 18)
-                        .padding(.horizontal, 55)
-                        .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 50))
-                        .foregroundStyle(.white)
+                    HStack{
+                        Text("ちがった")
+                        
+                        Image(systemName: "xmark")
+                    }
+                        .font(.system(size: 90))
+                        .foregroundStyle(.red)
                 }
                 Spacer()
             }
+            .opacity(opened ? 1 : 0)
          
         }
     }
 }
 
 #Preview {
-    AnswerView()
-        .environmentObject(ViewModel())
+    let viewModel = ViewModel()
+    viewModel.selectOdai()
+    return AnswerView()
+        .environmentObject(viewModel)
 }

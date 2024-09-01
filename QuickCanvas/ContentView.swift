@@ -14,6 +14,7 @@ struct ContentView: View {
         viewModel.step.view
             .environmentObject(viewModel)
     }
+    
 }
 
 #Preview {

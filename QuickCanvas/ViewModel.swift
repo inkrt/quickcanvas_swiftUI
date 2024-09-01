@@ -17,8 +17,7 @@ enum Step: Int {
     case drawSelect
     case showSelect
     case answerSelect
-    case saveSelect
-    case playAgeinSelect
+    case resultSelect
     
     var next: Step? {
         Step(rawValue: self.rawValue + 1)
@@ -48,10 +47,8 @@ enum Step: Int {
             ShowView()
         case .answerSelect:
             AnswerView()
-        case .saveSelect:
-            EmptyView()
-        case .playAgeinSelect:
-            EmptyView()
+        case .resultSelect:
+            ResultView()
         }
     }
 }
@@ -114,8 +111,45 @@ class ViewModel: NSObject, ObservableObject {
     func nextStep() {
         step = step.next!
     }
+    
+    
+    
     func previousStep(){
         step = step.previous!
+    }
+    
+    func end() {
+        step = .modelSelect
+        players = []
+        drawers = []
+        answerer = Player(name: "placeholder", color: .red, icon: Image(""))
+        odai = ""
+        turn = 0
+        time = 0
+        remainingTime = 0
+        drawImages = []
+        canvasView = PKCanvasView()
+        thickness = .medium
+        isPen = true    
+    }
+    
+    func playAgain(){
+        step = .roleSelect
+        odai = ""
+        turn = 0
+        time = 0
+        remainingTime = 0
+        drawImages = []
+        canvasView = PKCanvasView()
+        thickness = .medium
+        isPen = true    
+    }
+    
+    
+    func addPlayer(){
+        players.append(Player(name: "Player\(players.count + 1)",
+                                        color: Player.colors[players.count],
+                                        icon: Image(systemName: "questionmark")))
     }
     
     func dividePlayers() {
@@ -142,7 +176,7 @@ class ViewModel: NSObject, ObservableObject {
         
     }
     func canvasImage() -> UIImage {
-        canvasView.drawing.image(from: canvasView.drawing.bounds, scale: 1)
+        canvasView.drawing.image(from: canvasView.frame, scale: 1)
     }
     
     func updateTool(){
@@ -182,4 +216,21 @@ class ViewModel: NSObject, ObservableObject {
             undoManager.redo()
         }
     }
+    
+    func combineImages() -> UIImage {
+        guard let firstImage = drawImages.first else { return UIImage() }
+        let size = firstImage.size
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        for image in drawImages{
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+        
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return combinedImage!
+    }
+
 }

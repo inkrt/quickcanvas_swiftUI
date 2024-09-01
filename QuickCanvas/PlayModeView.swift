@@ -29,7 +29,17 @@ struct PlayModeView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .foregroundStyle(.white)
                           }
-                
+                NavigationLink{
+                    RecordView()
+                }label: {
+                    Image(systemName: "photo.on.rectangle.angled")
+                        .font(.system(size: 50))
+                        .padding(30)
+                        .background(.pink)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .foregroundStyle(.white)
+                }
+                .padding(.top,30)
             }
                 
                 

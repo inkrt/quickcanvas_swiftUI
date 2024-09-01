@@ -47,27 +47,28 @@ struct PlayerView: View {
                         
                     }
                 }
-                
-                Button {
-                    viewModel.players.append(Player(name: "Player\(viewModel.players.count + 1)",
-                                                    color: Player.colors[viewModel.players.count],
-                                                    icon: Image(systemName: "questionmark")))
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 70))
-                        .padding(.vertical, 30)
-                        .padding(.horizontal, 30)
-                        .background(.gray)
-                        .clipShape(RoundedRectangle(cornerRadius: 200))
-                        .foregroundStyle(.white)
-                    
+                if viewModel.players.count < 4 {
+                    Button {
+                        viewModel.addPlayer()
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 70))
+                            .padding(.vertical, 30)
+                            .padding(.horizontal, 30)
+                            .background(Color(.tertiarySystemFill))
+                            .clipShape(RoundedRectangle(cornerRadius: 200))
+                            .foregroundStyle(.black)
+                        
+                    }
+//                    .disabled(viewModel.players.count >= 4)
+                    .padding(.horizontal, 50)
                 }
-                .disabled(viewModel.players.count >= 4)
-                .padding(.horizontal, 100)
             }
                 
                 Button{
                     viewModel.nextStep()
+                    viewModel.dividePlayers()
+
                 }label: {
                     HStack{
                         Text("Next")
@@ -98,6 +99,10 @@ struct PlayerView: View {
                 //
                 //        }
             
+        }
+        .onAppear {
+            viewModel.addPlayer()
+            viewModel.addPlayer()
         }
     }
 }

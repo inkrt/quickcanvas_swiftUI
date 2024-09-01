@@ -13,33 +13,46 @@ struct ShowView: View {
     
     var body: some View {
         VStack{
-            Text("この絵のお題はなんでしょう！")
-                .foregroundStyle(.blue)
-                .font(.system(size: 80))
+            Text("この絵のお題はなんでしょう")
+                .foregroundStyle(.black)
+                .font(.system(size: 50))
           
-            HStack{
-                ForEach(0..<viewModel.drawImages.count, id: \.self) {index in
-                    Image(uiImage: viewModel.drawImages[index])
-                        .resizable()
-                        .scaledToFit()
+            ZStack{
+                ZStack{
+                    ForEach(0..<viewModel.drawImages.count, id: \.self) {index in
+                        Image(uiImage: viewModel.drawImages[index])
+                            .resizable()
+                            .scaledToFit()
+                    }
                 }
+                .padding(5)
+                
+                Image("gakubuti")
+                    .resizable()
+                    .scaledToFit()
             }
                 Button{
                     viewModel.nextStep()
                 }label:{
-                              Text("答える")
-                        .font(.system(size: 50))
-                        .padding(30)
+                    HStack{
+                        Text("答える")
+                        Image(systemName: "lightbulb.min.fill")
+                    }
+                        .font(.system(size: 40))
+                        .padding(15)
                         .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 40))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                         .foregroundStyle(.white)
                           }
-        
+                .padding(.top, 20)
+                .padding(.bottom, 30)
         }
     }
 }
 
 #Preview {
-    ShowView()
-        .environmentObject(ViewModel())
+    let viewModel = ViewModel()
+    viewModel.drawImages = [UIImage(systemName: "map")!, UIImage(systemName: "map")!, UIImage(systemName: "map")!]
+    return ShowView()
+        .environmentObject(viewModel)
 }

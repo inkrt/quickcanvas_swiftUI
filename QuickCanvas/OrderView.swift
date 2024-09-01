@@ -23,7 +23,7 @@ struct OrderView: View {
                     .font(.system(size: 150))
                     .foregroundStyle(viewModel.drawers[viewModel.turn].color)
                 
-                Text("さんです！")
+                Text("さんです")
                     .font(.system(size: 100))
                     
             }

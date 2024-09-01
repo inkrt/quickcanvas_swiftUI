@@ -15,16 +15,7 @@ struct DrawView: View {
         ZStack{
             CanvasView(canvasView: $viewModel.canvasView)
                 .environmentObject(viewModel)
-            VStack{
-                HStack{
-                    Spacer()
-                    Button("終わり！"){
-                        viewModel.finishDrawing()
-                    }
-                }
-                Spacer()
-            }
-            .padding()
+            
         }
         Gauge(value: viewModel.remainingTime, in: 0...viewModel.time)
         {
@@ -33,9 +24,9 @@ struct DrawView: View {
         .tint(viewModel.drawers[viewModel.turn].color)
         .labelsHidden()
         
-    
-        HStack(spacing: 100){
         
+        HStack(spacing: 100){
+            
             
             Button {
                 viewModel.isPen.toggle()
@@ -46,7 +37,7 @@ struct DrawView: View {
                     .frame(width: 50,height: 50)
                     .background(Color(.tertiarySystemFill))
                     .clipShape(.circle)
-    
+                
             }
             
             
@@ -79,15 +70,11 @@ struct DrawView: View {
                 }
             }
         }
-//        .padding(.vertical, 10)
-//    .onAppear{
-//      viewModel.startTimer()
-//            viewModel.updateTool()
-//            
-//            
-//        }
-    
-        
+        .padding(.vertical, 10)
+        .onAppear{
+            viewModel.startTimer()
+            viewModel.updateTool()
+        }
     }
 }
 

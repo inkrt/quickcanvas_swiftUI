@@ -10,19 +10,21 @@ import SwiftUI
 struct ShowView: View {
     @EnvironmentObject var viewModel:
     ViewModel
+    @State var size: CGSize = .zero
     
     var body: some View {
         VStack{
             Text("この絵のお題はなんでしょう")
                 .foregroundStyle(.black)
                 .font(.system(size: 50))
-          
+            
             ZStack{
                 ZStack{
                     ForEach(0..<viewModel.drawImages.count, id: \.self) {index in
                         Image(uiImage: viewModel.drawImages[index])
                             .resizable()
                             .scaledToFit()
+                            .frame(width: size.width)
                     }
                 }
                 .padding(5)
@@ -30,22 +32,23 @@ struct ShowView: View {
                 Image("gakubuti")
                     .resizable()
                     .scaledToFit()
+                    .readSize{ size = $0 }
             }
-                Button{
-                    viewModel.nextStep()
-                }label:{
-                    HStack{
-                        Text("答える")
-                        Image(systemName: "lightbulb.min.fill")
-                    }
-                        .font(.system(size: 40))
-                        .padding(15)
-                        .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .foregroundStyle(.white)
-                          }
-                .padding(.top, 20)
-                .padding(.bottom, 30)
+            Button{
+                viewModel.nextStep()
+            }label:{
+                HStack{
+                    Text("答える")
+                    Image(systemName: "lightbulb.min.fill")
+                }
+                .font(.system(size: 40))
+                .padding(15)
+                .background(.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .foregroundStyle(.white)
+            }
+            .padding(.top, 20)
+            .padding(.bottom, 30)
         }
     }
 }

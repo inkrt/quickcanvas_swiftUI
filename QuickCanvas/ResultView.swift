@@ -10,6 +10,9 @@ import SwiftUI
 struct ResultView: View {
     @EnvironmentObject var viewModel:
     ViewModel
+    
+    @State var size: CGSize = .zero
+    
     var body: some View {
         VStack{
             ZStack{
@@ -18,6 +21,7 @@ struct ResultView: View {
                         Image(uiImage: viewModel.drawImages[index])
                             .resizable()
                             .scaledToFit()
+                            .frame(width: size.width)
                     }
                 }
                 .padding(5)
@@ -25,6 +29,7 @@ struct ResultView: View {
                 Image("gakubuti")
                     .resizable()
                     .scaledToFit()
+                    .readSize{ size = $0 }
             }
             .overlay{
                 VStack{

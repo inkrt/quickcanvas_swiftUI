@@ -58,13 +58,14 @@ struct Player {
     var color: Color
     var icon: Image
     
-    static let colors: [Color] = [.red, .blue, .green, .yellow, .brown, .purple]
+    static let colors: [Color] = [.red, .blue, .green, .yellow, .brown, .purple].shuffled()
+    static let images: [Image] = [Image("icon5"), Image("icon2"), Image("icon3"), Image("icon4"), Image("icon1")].shuffled()
     
     static let preview: [Player] = [
-        Player(name: "player1", color: .red, icon: Image(uiImage: UIImage())),
-        Player(name: "player2", color: .blue, icon: Image(uiImage: UIImage())),
-        Player(name: "player3", color: .green, icon: Image(uiImage: UIImage())),
-        Player(name: "player4", color: .yellow, icon: Image(uiImage: UIImage()))
+        Player(name: "player1", color: .red, icon: images[0]),
+        Player(name: "player2", color: .blue, icon: images[1]),
+        Player(name: "player3", color: .green, icon: images[2]),
+        Player(name: "player4", color: .yellow, icon: images[3])
     ]
 }
 
@@ -106,7 +107,7 @@ class ViewModel: NSObject, ObservableObject {
     
     @Published var timer: Timer!
     
- 
+    
     
     func nextStep() {
         step = step.next!
@@ -130,7 +131,7 @@ class ViewModel: NSObject, ObservableObject {
         drawImages = []
         canvasView = PKCanvasView()
         thickness = .medium
-        isPen = true    
+        isPen = true
     }
     
     func playAgain(){
@@ -142,14 +143,14 @@ class ViewModel: NSObject, ObservableObject {
         drawImages = []
         canvasView = PKCanvasView()
         thickness = .medium
-        isPen = true    
+        isPen = true
     }
     
     
     func addPlayer(){
         players.append(Player(name: "Player\(players.count + 1)",
-                                        color: Player.colors[players.count],
-                                        icon: Image(systemName: "questionmark")))
+                              color: Player.colors[players.count],
+                              icon: Player.images[players.count]))
     }
     
     func dividePlayers() {
@@ -157,7 +158,7 @@ class ViewModel: NSObject, ObservableObject {
         drawers = players.filter{ $0.name != answerer.name }.shuffled()
     }
     func selectOdai(){
-        odai = ["うさぎ", "ねこ", "いぬ", "キリン", "モルモット", "ひつじ", "ぞう", "さる", "とり", "へび", "かに", "くま", "らいおん", "さめ", "かめ", "りす", "きつね", "らっこ", "くまのこ", "ひよこ", "いるか", "くじら", "かも", "こあら", "ねずみ", "らくだ", "かんがるー", "おおかみ", "とんぼ", "ことり", "さるねこ", "さるこ", "うそうさ", "とらぞう", "さめとり", "かにねこ", "ひつじねずみ", "こあらひつじ", "くじらひよこ", "さるとり", "ぞうかに", "かにぞう", "ねこいぬ", "いぬうさぎ", "とらきつね", "らいおんさめ", "りすくま", "さるくじら", "ぞうひつじ","女の子","男の子","セーラー服"].randomElement()!
+        odai = ["うさぎ", "ねこ", "いぬ", "キリン", "モルモット", "ひつじ", "ぞう", "さる", "とり", "へび", "かに", "くま", "らいおん", "さめ", "かめ", "りす", "きつね", "らっこ", "くまのこ", "ひよこ", "いるか", "くじら", "かも", "こあら", "ねずみ", "らくだ", "かんがるー", "おおかみ", "とんぼ", "ことり", "さるねこ", "さるこ", "うそうさ", "とらぞう", "さめとり", "かにねこ", "ひつじねずみ", "こあらひつじ", "くじらひよこ", "さるとり", "ぞうかに", "かにぞう", "ねこいぬ", "いぬうさぎ", "とらきつね", "らいおんさめ", "りすくま", "さるくじら", "ぞうひつじ","女の子","男の子","セーラー服", "ビーチバカンス","サーカスショー","ハロウィンナイト","クリスマス","冒険者パーティ","スポーツチーム","宇宙救助ミッション","バンド活動","農場の一日","海の冒険","お化け屋敷","お菓子作り","異世界での冒険"].randomElement()!
     }
     func selectTime(){
         time = Float(Int.random(in: 10...15))
@@ -206,13 +207,13 @@ class ViewModel: NSObject, ObservableObject {
     }
     
     func undo(){
-      if let undoManager = canvasView.undoManager{
-           undoManager.undo()
-       }
+        if let undoManager = canvasView.undoManager{
+            undoManager.undo()
+        }
     }
     
     func redo(){
-    if let undoManager = canvasView.undoManager{
+        if let undoManager = canvasView.undoManager{
             undoManager.redo()
         }
     }
@@ -232,5 +233,5 @@ class ViewModel: NSObject, ObservableObject {
         
         return combinedImage!
     }
-
+    
 }

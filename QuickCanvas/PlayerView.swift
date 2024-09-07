@@ -14,6 +14,8 @@ struct PlayerView: View {
     
     
     var body: some View {
+        
+        
         NavigationStack {
             
             HStack{
@@ -22,13 +24,21 @@ struct PlayerView: View {
                     VStack{
                         Button {
                         } label: {
-                            Text("?")
-                                .font(.system(size: 150))
-                                .padding(.vertical, 50)
-                                .padding(.horizontal, 100)
-                                .background(.blue)
+                            viewModel.players[index].icon
+                                .resizable()
+                                .frame(width: 240,height: 240)
                                 .clipShape(RoundedRectangle(cornerRadius: 70))
-                                .foregroundStyle(.white)
+                            
+                            //                            Image("icon5")
+                            //                                .resizable()
+                            //                                .scaledToFit()
+                            //                            Image(systemName: "person.circle")
+                            //                                .font(.system(size: 150))
+                            //                                .padding(.vertical, 50)
+                            //                                .padding(.horizontal, 100)
+                            //                                .background(.blue)
+                            //                                .clipShape(RoundedRectangle(cornerRadius: 70))
+                            //                                .foregroundStyle(.white)
                             
                         }
                         TextField("名前を入力", text: $viewModel.players[index].name)
@@ -60,44 +70,44 @@ struct PlayerView: View {
                             .foregroundStyle(.black)
                         
                     }
-//                    .disabled(viewModel.players.count >= 4)
+                    //                    .disabled(viewModel.players.count >= 4)
                     .padding(.horizontal, 50)
                 }
             }
+            
+            Button{
+                viewModel.nextStep()
+                viewModel.dividePlayers()
                 
-                Button{
-                    viewModel.nextStep()
-                    viewModel.dividePlayers()
-
-                }label: {
-                    HStack{
-                        Text("Next")
-                        Image(systemName: "chevron.forward")
-                    }
-                            .font(.system(size: 70))
-                            .padding(30)
-                            .background(.blue)
-                            .clipShape(RoundedRectangle(cornerRadius: 40))
-                            .foregroundStyle(.white)
-                    }
-        
-    
-                
-                //            VStack{
-                //                Spacer()
-                //            Button {
-                //
-                //            } label: {
-                //                Text("始める")
-                //                    .font(.system(size: 40))
-                //                    .padding(.vertical, 50)
-                //                    .padding(.horizontal, 50)
-                //                    .background(.red)
-                //                    .clipShape(RoundedRectangle(cornerRadius: 70))
-                //                    .foregroundStyle(.white)
-                //            }
-                //
-                //        }
+            }label: {
+                HStack{
+                    Text("Next")
+                    Image(systemName: "chevron.forward")
+                }
+                .font(.system(size: 50))
+                .padding(30)
+                .background(.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 40))
+                .foregroundStyle(.white)
+            }
+            
+            
+            
+            //            VStack{
+            //                Spacer()
+            //            Button {
+            //
+            //            } label: {
+            //                Text("始める")
+            //                    .font(.system(size: 40))
+            //                    .padding(.vertical, 50)
+            //                    .padding(.horizontal, 50)
+            //                    .background(.red)
+            //                    .clipShape(RoundedRectangle(cornerRadius: 70))
+            //                    .foregroundStyle(.white)
+            //            }
+            //
+            //        }
             
         }
         .onAppear {

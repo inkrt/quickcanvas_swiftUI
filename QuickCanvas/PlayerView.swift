@@ -90,25 +90,6 @@ struct PlayerView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 40))
                 .foregroundStyle(.white)
             }
-            
-            
-            
-            //            VStack{
-            //                Spacer()
-            //            Button {
-            //
-            //            } label: {
-            //                Text("始める")
-            //                    .font(.system(size: 40))
-            //                    .padding(.vertical, 50)
-            //                    .padding(.horizontal, 50)
-            //                    .background(.red)
-            //                    .clipShape(RoundedRectangle(cornerRadius: 70))
-            //                    .foregroundStyle(.white)
-            //            }
-            //
-            //        }
-            
         }
         .onAppear {
             viewModel.addPlayer()

@@ -22,8 +22,8 @@ struct PlayerView: View {
                 
                 ForEach(0..<viewModel.players.count, id: \.self) { index in
                     VStack{
-                        Button {
-                        } label: {
+//                        Button {
+//                        } label: {
                             viewModel.players[index].icon
                                 .resizable()
                                 .frame(width: 240,height: 240)
@@ -40,13 +40,13 @@ struct PlayerView: View {
                             //                                .clipShape(RoundedRectangle(cornerRadius: 70))
                             //                                .foregroundStyle(.white)
                             
-                        }
+//                        }
                         TextField("名前を入力", text: $viewModel.players[index].name)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 50))
-                        Button{
-                            
-                        }label: {
+//                        Button{
+//                            
+//                        }label: {
                             Image(systemName: "scribble.variable")
                                 .font(.system(size: 40))
                                 .padding(.vertical, 30)
@@ -55,7 +55,7 @@ struct PlayerView: View {
                                 .foregroundStyle(viewModel.players[index].color)
                         }
                         
-                    }
+//                    }
                 }
                 if viewModel.players.count < 4 {
                     Button {

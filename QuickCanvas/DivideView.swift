@@ -14,15 +14,16 @@ struct DivideView: View {
         VStack{
             HStack{
                 VStack {
-                    Text("描く人")
+                    Image(systemName: "pencil.and.scribble")
                         .font(.system(size: 90))
+                        .padding(.bottom, 120)
                     HStack {
                         ForEach(0..<viewModel.drawers.count, id: \.self) { index in
                             VStack{
                                 
                                 viewModel.drawers[index].icon
                                     .resizable()
-                                    .frame(width: 200,height: 200)
+                                    .frame(width: 220,height: 220)
                                     .clipShape(RoundedRectangle(cornerRadius: 70))
                                 //                                Text("?")
                                 //                                    .font(.system(size: 150))
@@ -56,8 +57,8 @@ struct DivideView: View {
                 }
                 .padding(.trailing, 100)
                 VStack{
-                    Text("答える人")
-                        .font(.system(size: 90))
+                    Image(systemName: "lightbulb.max")
+                        .font(.system(size: 120))
                     VStack{
                         
                         viewModel.answerer.icon
@@ -99,7 +100,7 @@ struct DivideView: View {
                 }label: {
                     Image(systemName: "shuffle")
                         .font(.system(size: 40))
-                        .padding(.vertical, 30)
+                        .padding(.vertical, 20)
                         .padding(.horizontal, 40)
                         .background(Color(.tertiarySystemFill))
                         .clipShape(RoundedRectangle(cornerRadius: 70))
@@ -114,8 +115,8 @@ struct DivideView: View {
                         Image(systemName: "chevron.forward")
                     }
                     .font(.system(size: 40))
-                    .padding(.vertical, 30)
-                    .padding(.horizontal, 40)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 30)
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 70))
                     .foregroundStyle(.white)

@@ -20,7 +20,7 @@ struct AnswerView: View {
             
             ZStack{
                 Text(viewModel.odai)
-                    .font(.system(size: 150))
+                    .font(.system(size: 120))
                     .foregroundStyle(Color(red: 0.39, green: 0.82, blue: 1.0, opacity: 1.0))
                 Button {
                     opened = true

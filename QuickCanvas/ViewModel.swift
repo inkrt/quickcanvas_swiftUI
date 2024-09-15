@@ -146,9 +146,10 @@ class ViewModel: NSObject, ObservableObject {
         isPen = true
     }
     
+//    Player\(players.count + 1)
     
     func addPlayer(){
-        players.append(Player(name: "Player\(players.count + 1)",
+        players.append(Player(name: "",
                               color: Player.colors[players.count],
                               icon: Player.images[players.count]))
     }

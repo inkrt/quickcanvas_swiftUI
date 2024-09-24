@@ -154,6 +154,12 @@ class ViewModel: NSObject, ObservableObject {
                               icon: Player.images[players.count]))
     }
     
+    //プレイヤーを減らす関数
+    // 中でplayers.removeLast()する
+    func removePlayer(){
+        players.removeLast()
+    }
+    
     func dividePlayers() {
         answerer = players.randomElement()!
         drawers = players.filter{ $0.name != answerer.name }.shuffled()

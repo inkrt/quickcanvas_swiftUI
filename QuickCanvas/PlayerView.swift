@@ -57,21 +57,38 @@ struct PlayerView: View {
                         
 //                    }
                 }
-                if viewModel.players.count < 4 {
-                    Button {
-                        viewModel.addPlayer()
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 70))
-                            .padding(.vertical, 30)
-                            .padding(.horizontal, 30)
-                            .background(Color(.tertiarySystemFill))
-                            .clipShape(RoundedRectangle(cornerRadius: 200))
-                            .foregroundStyle(.black)
-                        
+                VStack{
+                    if viewModel.players.count < 4 {
+                        Button {
+                            viewModel.addPlayer()
+                        } label: {
+                            Image(systemName: "plus")
+                                .font(.system(size: 70))
+                                .padding(.vertical, 30)
+                                .padding(.horizontal, 30)
+                                .background(Color(.tertiarySystemFill))
+                                .clipShape(RoundedRectangle(cornerRadius: 200))
+                                .foregroundStyle(.blue)
+                            
+                        }
+                        //                    .disabled(viewModel.players.count >= 4)
+                        .padding(.horizontal, 50)
                     }
-                    //                    .disabled(viewModel.players.count >= 4)
-                    .padding(.horizontal, 50)
+                    if viewModel.players.count > 2{
+                        Button{
+                            viewModel.removePlayer()
+                        } label: {
+                            Image(systemName: "minus")
+                                .font(.system(size: 50))
+                                .padding(.vertical, 50)
+                                .padding(.horizontal, 30)
+                                .background(Color(.tertiarySystemFill))
+                                .clipShape(RoundedRectangle(cornerRadius: 200))
+                                .foregroundStyle(.black)
+                            
+                        }
+                        .padding(.top, 50)
+                    }
                 }
             }
             

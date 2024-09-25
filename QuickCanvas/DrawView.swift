@@ -17,6 +17,20 @@ struct DrawView: View {
                 .environmentObject(viewModel)
             
         }
+        VStack {
+                  HStack {
+                      viewModel.drawers[viewModel.turn].icon
+                          .resizable()
+                          .frame(width: 100,height: 100)
+                          .clipShape(RoundedRectangle(cornerRadius: 70))
+                          .shadow(radius: 5)
+                      Spacer()
+                  }
+                .padding(.bottom, 575)
+                .padding(.leading, 30)
+              }
+              
+        
         Gauge(value: viewModel.remainingTime, in: 0...viewModel.time)
         {
             Text("")
@@ -37,6 +51,7 @@ struct DrawView: View {
                     .frame(width: 50,height: 50)
                     .background(Color(.tertiarySystemFill))
                     .clipShape(.circle)
+                
                 
             }
             

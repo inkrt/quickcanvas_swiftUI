@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct AnswerView: View {
     @EnvironmentObject var viewModel:
@@ -13,6 +14,11 @@ struct AnswerView: View {
     
     @State var opened = false
     
+    private let seikaiSound = try!  AVAudioPlayer(data: NSDataAsset(name: "kanki")!.data)
+    
+    private func playSound(){
+        seikaiSound.play()
+       }
     var body: some View {
         VStack{
             Text("答えは")
@@ -44,6 +50,8 @@ struct AnswerView: View {
                 Button{
                     viewModel.nextStep()
                     SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
+                    
+                    playSound()
                 }label: {
                     HStack{
                         Text("あってた")

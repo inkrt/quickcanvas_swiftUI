@@ -72,6 +72,7 @@ struct PlayerView: View {
                             
                         }
                         //                    .disabled(viewModel.players.count >= 4)
+                        .padding(.top, 50)
                         .padding(.horizontal, 50)
                     }
                     if viewModel.players.count > 2{
@@ -80,14 +81,15 @@ struct PlayerView: View {
                         } label: {
                             Image(systemName: "minus")
                                 .font(.system(size: 50))
-                                .padding(.vertical, 50)
-                                .padding(.horizontal, 30)
+                                .padding(.vertical, 40)
+                                .padding(.horizontal, 20)
                                 .background(Color(.tertiarySystemFill))
                                 .clipShape(RoundedRectangle(cornerRadius: 200))
                                 .foregroundStyle(.black)
                             
                         }
                         .padding(.top, 50)
+                        .padding(.horizontal, 50)
                     }
                 }
             }

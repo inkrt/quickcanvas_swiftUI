@@ -14,11 +14,27 @@ struct AnswerView: View {
     
     @State var opened = false
     
-    private let seikaiSound = try!  AVAudioPlayer(data: NSDataAsset(name: "kanki")!.data)
+    private let kankiSound = try!  AVAudioPlayer(data: NSDataAsset(name: "kanki")!.data)
+    
     
     private func playSound(){
+        kankiSound.play()
+       }
+    
+    private let seikaiSound = try!  AVAudioPlayer(data: NSDataAsset(name: "seikai")!.data)
+    
+    
+    private func play2Sound(){
         seikaiSound.play()
        }
+    
+    private let matigaiSound = try!  AVAudioPlayer(data: NSDataAsset(name: "matigai")!.data)
+    
+    
+    private func play3Sound(){
+        matigaiSound.play()
+       }
+    
     var body: some View {
         VStack{
             Text("答えは")
@@ -52,6 +68,7 @@ struct AnswerView: View {
                     SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
                     
                     playSound()
+                    play2Sound()
                 }label: {
                     HStack{
                         Text("あってた")
@@ -66,6 +83,8 @@ struct AnswerView: View {
                 Button{
                     viewModel.nextStep()
                     SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
+                    
+                    play3Sound()
                 }label: {
                     HStack{
                         Text("ちがった")

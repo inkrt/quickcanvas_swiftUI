@@ -123,6 +123,7 @@ struct DivideView: View {
                     
                 }
             }
+            .padding(.bottom, 50)
         }
         
     }

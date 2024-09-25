@@ -16,19 +16,27 @@ struct DrawView: View {
             CanvasView(canvasView: $viewModel.canvasView)
                 .environmentObject(viewModel)
             
-        }
-        VStack {
-                  HStack {
-                      viewModel.drawers[viewModel.turn].icon
-                          .resizable()
-                          .frame(width: 100,height: 100)
-                          .clipShape(RoundedRectangle(cornerRadius: 70))
-                          .shadow(radius: 5)
-                      Spacer()
-                  }
+            
+            VStack {
+                HStack {
+                    viewModel.drawers[viewModel.turn].icon
+                        .resizable()
+                        .frame(width: 100,height: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 70))
+                        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+                    
+                    Text(viewModel.drawers[viewModel.turn].name)
+                        .font(.system(size: 50))
+                        .foregroundStyle(viewModel.drawers[viewModel.turn].color)
+                        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+                    
+                    Spacer()
+                    
+                }
                 .padding(.bottom, 575)
                 .padding(.leading, 30)
-              }
+            }
+        }
               
         
         Gauge(value: viewModel.remainingTime, in: 0...viewModel.time)
@@ -87,8 +95,8 @@ struct DrawView: View {
         }
         .padding(.vertical, 10)
         .onAppear{
-            viewModel.startTimer()
-            viewModel.updateTool()
+//            viewModel.startTimer()
+//            viewModel.updateTool()
         }
     }
 }

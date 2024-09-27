@@ -33,7 +33,7 @@ struct DrawView: View {
                     
                     Text(viewModel.drawers[viewModel.turn].name)
                         .font(.system(size: 50))
-                        .shadow(color: viewModel.drawers[viewModel.turn].color, radius: 1, x: 3, y: 3)
+                        .shadow(color: viewModel.drawers[viewModel.turn].color, radius: 6, x: 3, y: 3)
                         .foregroundStyle(.white)
                     
 //               .foregroundStyle(viewModel.drawers[viewModel.turn].color)
@@ -104,7 +104,7 @@ struct DrawView: View {
         }
         .padding(.vertical, 10)
         .onAppear{
-//            viewModel.startTimer()
+            viewModel.startTimer()
             viewModel.updateTool()
         }
     }

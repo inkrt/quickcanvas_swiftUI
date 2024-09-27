@@ -7,6 +7,14 @@
 
 import SwiftUI
 import PencilKit
+import AVFoundation
+
+private let timeSound = try!  AVAudioPlayer(data: NSDataAsset(name: "time")!.data)
+
+
+private func play4Sound(){
+    timeSound.play()
+   }
 
 enum Step: Int {
     case modelSelect
@@ -200,10 +208,18 @@ class ViewModel: NSObject, ObservableObject {
         if remainingTime == 0 {
             timer.invalidate()
             finishDrawing()
+            
         }else{
             withAnimation(.linear(duration: 1)){
                 remainingTime -= 1
+                 
+            
             }
+        }
+        if remainingTime > 5 {
+            
+        }else{
+            play4Sound()
         }
     }
     

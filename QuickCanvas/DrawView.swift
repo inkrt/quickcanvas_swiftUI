@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct DrawView: View {
     
     @EnvironmentObject var viewModel:
     ViewModel
+    
+    
+    
     var body: some View {
         ZStack{
             CanvasView(canvasView: $viewModel.canvasView)
@@ -22,13 +26,17 @@ struct DrawView: View {
                     viewModel.drawers[viewModel.turn].icon
                         .resizable()
                         .frame(width: 100,height: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 70))
-                        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+                        .clipShape(RoundedRectangle(cornerRadius: 50))
+                        .shadow(color: viewModel.drawers[viewModel.turn].color, radius: 1, x: 3, y: 3)
+                    
+                    
                     
                     Text(viewModel.drawers[viewModel.turn].name)
                         .font(.system(size: 50))
-                        .foregroundStyle(viewModel.drawers[viewModel.turn].color)
-                        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+                        .shadow(color: viewModel.drawers[viewModel.turn].color, radius: 1, x: 3, y: 3)
+                        .foregroundStyle(.white)
+                    
+//               .foregroundStyle(viewModel.drawers[viewModel.turn].color)
                     
                     Spacer()
                     
@@ -46,6 +54,7 @@ struct DrawView: View {
         .tint(viewModel.drawers[viewModel.turn].color)
         .labelsHidden()
         
+       
         
         HStack(spacing: 100){
             
@@ -96,7 +105,7 @@ struct DrawView: View {
         .padding(.vertical, 10)
         .onAppear{
 //            viewModel.startTimer()
-//            viewModel.updateTool()
+            viewModel.updateTool()
         }
     }
 }

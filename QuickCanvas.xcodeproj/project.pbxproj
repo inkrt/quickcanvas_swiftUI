@@ -17,6 +17,8 @@
 		EC4EA3092C27CF8F0004FB71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4EA3082C27CF8F0004FB71 /* Preview Assets.xcassets */; };
 		EC4EA3102C27E3EF0004FB71 /* OdaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA30F2C27E3EF0004FB71 /* OdaiView.swift */; };
 		EC4EA3122C27F7130004FB71 /* PlayModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA3112C27F7130004FB71 /* PlayModeView.swift */; };
+		EC6D8B0D2CA84C2300DC53F1 /* RuleModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D8B0C2CA84C2300DC53F1 /* RuleModeView.swift */; };
+		EC6D8B0F2CA853BC00DC53F1 /* BoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D8B0E2CA853BC00DC53F1 /* BoundView.swift */; };
 		EC7147322C5F174B00845A38 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7147312C5F174B00845A38 /* CanvasView.swift */; };
 		EC7A103C2C3A2CB400C149B0 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A103B2C3A2CB400C149B0 /* PlayerView.swift */; };
 		EC7A103E2C3A2D5000C149B0 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A103D2C3A2D5000C149B0 /* OrderView.swift */; };
@@ -39,6 +41,8 @@
 		EC4EA3082C27CF8F0004FB71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC4EA30F2C27E3EF0004FB71 /* OdaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdaiView.swift; sourceTree = "<group>"; };
 		EC4EA3112C27F7130004FB71 /* PlayModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayModeView.swift; sourceTree = "<group>"; };
+		EC6D8B0C2CA84C2300DC53F1 /* RuleModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleModeView.swift; sourceTree = "<group>"; };
+		EC6D8B0E2CA853BC00DC53F1 /* BoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundView.swift; sourceTree = "<group>"; };
 		EC7147312C5F174B00845A38 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		EC7A103B2C3A2CB400C149B0 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		EC7A103D2C3A2D5000C149B0 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				EC4EA3112C27F7130004FB71 /* PlayModeView.swift */,
 				EC7A103B2C3A2CB400C149B0 /* PlayerView.swift */,
 				EC7A10412C3A754900C149B0 /* DivideView.swift */,
+				EC6D8B0C2CA84C2300DC53F1 /* RuleModeView.swift */,
+				EC6D8B0E2CA853BC00DC53F1 /* BoundView.swift */,
 				EC4EA30F2C27E3EF0004FB71 /* OdaiView.swift */,
 				EC7A103D2C3A2D5000C149B0 /* OrderView.swift */,
 				ECB850C32C4CDD580003168A /* DrawView.swift */,
@@ -184,9 +190,11 @@
 				EC4EA3102C27E3EF0004FB71 /* OdaiView.swift in Sources */,
 				EC8C88442C4CA3E1003B1038 /* ViewModel.swift in Sources */,
 				EC7147322C5F174B00845A38 /* CanvasView.swift in Sources */,
+				EC6D8B0D2CA84C2300DC53F1 /* RuleModeView.swift in Sources */,
 				EC4EA3042C27CF8E0004FB71 /* ContentView.swift in Sources */,
 				3DF1A4B22C8B745900D1D303 /* ViewExtension.swift in Sources */,
 				EC7A10402C3A3D5600C149B0 /* AnswerView.swift in Sources */,
+				EC6D8B0F2CA853BC00DC53F1 /* BoundView.swift in Sources */,
 				EC7A10422C3A754900C149B0 /* DivideView.swift in Sources */,
 				EC4EA3022C27CF8E0004FB71 /* QuickCanvasApp.swift in Sources */,
 				EC2B85C52C840E1900E4A0C3 /* ResultView.swift in Sources */,

@@ -12,6 +12,7 @@ struct OrderView: View {
     ViewModel
     var body: some View {
         VStack{
+            
             HStack{
                 
                 Text("\(viewModel.turn + 1)番目の人は")

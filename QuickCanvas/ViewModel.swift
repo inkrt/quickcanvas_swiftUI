@@ -20,6 +20,8 @@ enum Step: Int {
     case modelSelect
     case playerSelect
     case roleSelect
+    case ruleSelect
+    case boundSelect
     case odaiSelect
     case readySelect
     case drawSelect
@@ -29,6 +31,10 @@ enum Step: Int {
     
     var next: Step? {
         Step(rawValue: self.rawValue + 1)
+    }
+    
+    var nexts: Step? {
+        Step(rawValue: self.rawValue + 2)
     }
     
     var previous: Step? {
@@ -45,8 +51,12 @@ enum Step: Int {
             PlayerView()
         case .roleSelect:
             DivideView()
+        case .ruleSelect:
+            RuleModeView()
         case .odaiSelect:
             OdaiView()
+        case .boundSelect:
+            BoundView()
         case .readySelect:
             OrderView()
         case .drawSelect:
@@ -57,6 +67,8 @@ enum Step: Int {
             AnswerView()
         case .resultSelect:
             ResultView()
+            
+
         }
     }
 }
@@ -107,6 +119,7 @@ class ViewModel: NSObject, ObservableObject {
     @Published var time: Float = 0
     @Published var remainingTime: Float = 0
     @Published var drawImages: [UIImage] = []
+    @Published var bound: String = ""
     
     
     @Published var canvasView = PKCanvasView()
@@ -121,7 +134,9 @@ class ViewModel: NSObject, ObservableObject {
         step = step.next!
     }
     
-    
+    func nextsStep(){
+        step = step.nexts!
+    }
     
     func previousStep(){
         step = step.previous!
@@ -172,6 +187,18 @@ class ViewModel: NSObject, ObservableObject {
         answerer = players.randomElement()!
         drawers = players.filter{ $0.name != answerer.name }.shuffled()
     }
+    
+    func selectBound(){
+        bound = ["目を閉じる","利き手じゃない方で描く"].randomElement()!
+    }
+    func shuffleBound(){
+//        bound.shuffle()
+//           
+//           let selectedBound = bound.first!
+           
+    }
+    
+    
     func selectOdai(){
         odai = ["うさぎ", "ねこ", "いぬ", "キリン", "モルモット", "ひつじ", "ぞう", "さる", "とり", "へび", "かに", "くま", "らいおん", "さめ", "かめ", "りす", "きつね", "らっこ", "くまのこ", "ひよこ", "いるか", "くじら", "かも", "こあら", "ねずみ", "らくだ", "かんがるー", "おおかみ", "とんぼ", "ことり", "さるねこ", "さるこ", "うそうさ", "とらぞう", "さめとり", "かにねこ", "ひつじねずみ", "こあらひつじ", "くじらひよこ", "さるとり", "ぞうかに", "かにぞう", "ねこいぬ", "いぬうさぎ", "とらきつね", "らいおんさめ", "りすくま", "さるくじら", "ぞうひつじ","女の子","男の子","セーラー服", "ビーチバカンス","サーカスショー","ハロウィンナイト","クリスマス","冒険者パーティ","スポーツチーム","宇宙救助ミッション","バンド活動","農場の一日","海の冒険","お化け屋敷","お菓子作り","異世界での冒険"].randomElement()!
     }

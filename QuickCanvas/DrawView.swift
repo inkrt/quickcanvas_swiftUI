@@ -100,11 +100,13 @@ struct DrawView: View {
                     Image(systemName: "arrow.turn.up.right")
                         .foregroundStyle(.black)
                 }
+                
+                
             }
         }
         .padding(.vertical, 10)
         .onAppear{
-            viewModel.startTimer()
+//            viewModel.startTimer()
             viewModel.updateTool()
         }
     }

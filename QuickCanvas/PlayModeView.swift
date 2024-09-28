@@ -13,6 +13,7 @@ struct PlayModeView: View {
     var body: some View {
     
         NavigationStack {
+            
             VStack{
                 Text("QiuckCanvas")
                     .foregroundStyle(.blue)

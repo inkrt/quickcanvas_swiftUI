@@ -23,7 +23,7 @@ struct DivideView: View {
                                 
                                 viewModel.drawers[index].icon
                                     .resizable()
-                                    .frame(width: 220,height: 220)
+                                    .frame(width: 200,height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 70))
                                 //                                Text("?")
                                 //                                    .font(.system(size: 150))
@@ -55,7 +55,7 @@ struct DivideView: View {
                         }
                     }
                 }
-                .padding(.trailing, 100)
+                .padding(.trailing, 60)
                 VStack{
                     Image(systemName: "lightbulb.max")
                         .font(.system(size: 120))
@@ -63,7 +63,7 @@ struct DivideView: View {
                         
                         viewModel.answerer.icon
                             .resizable()
-                            .frame(width: 350,height: 350)
+                            .frame(width: 330,height: 330)
                             .clipShape(RoundedRectangle(cornerRadius: 70))
                         //                        Text("?")
                         //                            .font(.system(size: 150))

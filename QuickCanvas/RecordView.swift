@@ -20,6 +20,7 @@ struct RecordView: View {
                             .resizable()
                         //                        .frame(height: 200)
                             .scaledToFit()
+                            .shadow(color: Color.red, radius: 1, x: 3, y: 3)
                         Text(record.odai)
                     }
                 }

@@ -20,8 +20,8 @@ enum Step: Int {
     case modelSelect
     case playerSelect
     case roleSelect
-    case ruleSelect
-    case boundSelect
+//    case ruleSelect
+//    case boundSelect
     case odaiSelect
     case readySelect
     case drawSelect
@@ -51,12 +51,12 @@ enum Step: Int {
             PlayerView()
         case .roleSelect:
             DivideView()
-        case .ruleSelect:
-            RuleModeView()
+//        case .ruleSelect:
+//            RuleModeView()
         case .odaiSelect:
             OdaiView()
-        case .boundSelect:
-            BoundView()
+//        case .boundSelect:
+//            BoundView()
         case .readySelect:
             OrderView()
         case .drawSelect:
@@ -77,6 +77,7 @@ struct Player {
     var name: String
     var color: Color
     var icon: Image
+    var hasBound: Bool = false
     
     static let colors: [Color] = [.red, .blue, .green, .yellow, .brown, .purple].shuffled()
     static let images: [Image] = [Image("icon5"), Image("icon2"), Image("icon3"), Image("icon4"), Image("icon1")].shuffled()
@@ -189,15 +190,9 @@ class ViewModel: NSObject, ObservableObject {
     }
     
     func selectBound(){
-        bound = ["目を閉じる","利き手じゃない方で描く"].randomElement()!
+        bound = ["目を閉じて","利き手じゃない方で","画面を逆さにして","１筆書きで","線3本だけで","ペンを端に持って","線を使わずに"].randomElement()!
     }
-    func shuffleBound(){
-//        bound.shuffle()
-//           
-//           let selectedBound = bound.first!
-           
-    }
-    
+  
     
     func selectOdai(){
         odai = ["うさぎ", "ねこ", "いぬ", "キリン", "モルモット", "ひつじ", "ぞう", "さる", "とり", "へび", "かに", "くま", "らいおん", "さめ", "かめ", "りす", "きつね", "らっこ", "くまのこ", "ひよこ", "いるか", "くじら", "かも", "こあら", "ねずみ", "らくだ", "かんがるー", "おおかみ", "とんぼ", "ことり", "さるねこ", "さるこ", "うそうさ", "とらぞう", "さめとり", "かにねこ", "ひつじねずみ", "こあらひつじ", "くじらひよこ", "さるとり", "ぞうかに", "かにぞう", "ねこいぬ", "いぬうさぎ", "とらきつね", "らいおんさめ", "りすくま", "さるくじら", "ぞうひつじ","女の子","男の子","セーラー服", "ビーチバカンス","サーカスショー","ハロウィンナイト","クリスマス","冒険者パーティ","スポーツチーム","宇宙救助ミッション","バンド活動","農場の一日","海の冒険","お化け屋敷","お菓子作り","異世界での冒険"].randomElement()!
@@ -243,9 +238,7 @@ class ViewModel: NSObject, ObservableObject {
             
             }
         }
-        if remainingTime > 5 {
-            
-        }else{
+        if remainingTime == 5 {
             play4Sound()
         }
     }
@@ -283,5 +276,7 @@ class ViewModel: NSObject, ObservableObject {
         
         return combinedImage!
     }
+   
+    
     
 }

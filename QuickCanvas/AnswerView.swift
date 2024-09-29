@@ -65,6 +65,7 @@ struct AnswerView: View {
                 Spacer()
                 Button{
                     viewModel.nextStep()
+                    
                     SwiftDataHandler.shared.add(record: Record(odai: viewModel.odai, image: viewModel.combineImages()))
                     
                     playSound()

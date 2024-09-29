@@ -43,7 +43,8 @@ struct PlayerView: View {
 //                        }
                         TextField("名前を入力", text: $viewModel.players[index].name)
                             .multilineTextAlignment(.center)
-                            .font(.system(size: 50))
+                            .font(.system(size: 35))
+                            .padding(.top, 15)
 //                        Button{
 //                            
 //                        }label: {
@@ -53,6 +54,28 @@ struct PlayerView: View {
                                 .padding(.horizontal, 40)
                                 .clipShape(RoundedRectangle(cornerRadius: 70))
                                 .foregroundStyle(viewModel.players[index].color)
+                        
+                        Button{
+                            viewModel.players[index].hasBound.toggle()
+                        }label: {
+                            if viewModel.players[index].hasBound{
+                                Text("縛りあり")
+                                    .font(.system(size: 25))
+                                    .padding(.vertical, 15)
+                                    .padding(.horizontal, 20)
+                                    .background(Color(red: 0.9, green: 0.20, blue: 0.30, opacity: 0.9))
+                                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                                    .foregroundStyle(.white)
+                            }else{
+                                Text("縛りなし")
+                                    .font(.system(size: 25))
+                                    .padding(.vertical, 15)
+                                    .padding(.horizontal, 20)
+                                    .background(Color(.tertiarySystemFill))
+                                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                                    .foregroundStyle(.black)
+                            }
+                        }
                         }
                         
 //                    }
@@ -109,6 +132,7 @@ struct PlayerView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 40))
                 .foregroundStyle(.white)
             }
+            .padding(.top, 30)
         }
         .onAppear {
             viewModel.addPlayer()

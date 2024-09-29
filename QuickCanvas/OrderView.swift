@@ -16,21 +16,30 @@ struct OrderView: View {
             HStack{
                 
                 Text("\(viewModel.turn + 1)番目の人は")
-                    .font(.system(size: 100))
+                    .font(.system(size: 80))
                    
             }
             HStack{ 
                 Text(viewModel.drawers[viewModel.turn].name)
-                    .font(.system(size: 150))
+                    .font(.system(size: 110))
                     .foregroundStyle(viewModel.drawers[viewModel.turn].color)
                 
                 Text("さんです")
-                    .font(.system(size: 100))
+                    .font(.system(size: 80))
                     
             }
             HStack{
-                Text("\(Int(viewModel.time))秒で描いてください")
-                    .font(.system(size:80))
+                Text("\(Int(viewModel.time))秒で")
+                    .font(.system(size:90))
+                    .multilineTextAlignment(.center)
+                
+            }
+            HStack{
+                Text(viewModel.drawers[viewModel.turn].hasBound ?viewModel.bound : "")
+                    .font(.system(size: 70))
+                    .foregroundStyle(viewModel.drawers[viewModel.turn].color)
+                Text("描いてください")
+                    .font(.system(size: 60))
             }
             Button{
                 viewModel.nextStep()
@@ -52,6 +61,7 @@ struct OrderView: View {
         
         .onAppear{
             viewModel.selectTime()
+            viewModel.selectBound()
         }
     }
 

@@ -52,10 +52,12 @@ public class SwiftDataHandler {
 @Model
 class Record {
     var odai: String
+//    var isCorrect: Bool
     @Attribute(.externalStorage) var image: Data?
     
-    init(odai: String, image: UIImage) {
+    init(odai: String, image: UIImage/*, isCorrect: Bool*/) {
         self.odai = odai
         self.image = image.pngData()
+//        self.isCorrect = isCorrect
     }
 }

@@ -106,7 +106,7 @@ struct DrawView: View {
         }
         .padding(.vertical, 10)
         .onAppear{
-//            viewModel.startTimer()
+            viewModel.startTimer()
             viewModel.updateTool()
         }
     }

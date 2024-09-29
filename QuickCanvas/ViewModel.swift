@@ -129,7 +129,9 @@ class ViewModel: NSObject, ObservableObject {
     
     @Published var timer: Timer!
     
-    
+    override init(){
+        timeSound.prepareToPlay()
+    }
     
     func nextStep() {
         step = step.next!
@@ -190,7 +192,7 @@ class ViewModel: NSObject, ObservableObject {
     }
     
     func selectBound(){
-        bound = ["目を閉じて","利き手じゃない方で","画面を逆さにして","１筆書きで","線3本だけで","ペンを端に持って","線を使わずに"].randomElement()!
+        bound = ["目を閉じて","利き手じゃない方で","画面を逆さにして","１筆書きで","線3本だけで","ドットで","足踏みしながら","歌いながら","しりとりしながら"].randomElement()!
     }
   
     

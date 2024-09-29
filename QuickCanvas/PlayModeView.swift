@@ -11,7 +11,6 @@ struct PlayModeView: View {
     @EnvironmentObject var viewModel:
     ViewModel
     var body: some View {
-    
         NavigationStack {
             
             VStack{

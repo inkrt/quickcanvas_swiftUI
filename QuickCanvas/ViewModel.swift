@@ -9,19 +9,11 @@ import SwiftUI
 import PencilKit
 import AVFoundation
 
-private let timeSound = try!  AVAudioPlayer(data: NSDataAsset(name: "time")!.data)
-
-
-private func play4Sound(){
-    timeSound.play()
-   }
 
 enum Step: Int {
     case modelSelect
     case playerSelect
     case roleSelect
-//    case ruleSelect
-//    case boundSelect
     case odaiSelect
     case readySelect
     case drawSelect
@@ -51,12 +43,8 @@ enum Step: Int {
             PlayerView()
         case .roleSelect:
             DivideView()
-//        case .ruleSelect:
-//            RuleModeView()
         case .odaiSelect:
             OdaiView()
-//        case .boundSelect:
-//            BoundView()
         case .readySelect:
             OrderView()
         case .drawSelect:
@@ -88,6 +76,10 @@ struct Player {
         Player(name: "player3", color: .green, icon: images[2]),
         Player(name: "player4", color: .yellow, icon: images[3])
     ]
+    
+    mutating func changeIcon() {
+        icon =  Self.images.randomElement()!
+    }
 }
 
 enum Thickness: String, CaseIterable, Identifiable {
@@ -111,6 +103,13 @@ enum Thickness: String, CaseIterable, Identifiable {
 }
 
 class ViewModel: NSObject, ObservableObject {
+    private let timeSound = try!  AVAudioPlayer(data: NSDataAsset(name: "time")!.data)
+
+
+    private func play4Sound(){
+        timeSound.play()
+       }
+
     @Published var step: Step = .modelSelect
     @Published var players: [Player] = []
     @Published var drawers: [Player] = []
@@ -178,6 +177,12 @@ class ViewModel: NSObject, ObservableObject {
         players.append(Player(name: "",
                               color: Player.colors[players.count],
                               icon: Player.images[players.count]))
+    }
+    
+    func changePlayericon(playernumber: Int) {
+        var player = players[playernumber]
+        player.changeIcon()
+        players[playernumber] = player
     }
     
     //プレイヤーを減らす関数

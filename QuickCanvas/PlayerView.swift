@@ -22,6 +22,12 @@ struct PlayerView: View {
                 
                 ForEach(0..<viewModel.players.count, id: \.self) { index in
                     VStack{
+                        Button {
+                            viewModel.changePlayericon(playernumber: index)
+                        }label:{
+                            Image(systemName: "repeat")
+                                .font(.system(size: 35))
+                        }
 //                        Button {
 //                        } label: {
                             viewModel.players[index].icon
@@ -29,18 +35,7 @@ struct PlayerView: View {
                                 .frame(width: 240,height: 240)
                                 .clipShape(RoundedRectangle(cornerRadius: 70))
                             
-                            //                            Image("icon5")
-                            //                                .resizable()
-                            //                                .scaledToFit()
-                            //                            Image(systemName: "person.circle")
-                            //                                .font(.system(size: 150))
-                            //                                .padding(.vertical, 50)
-                            //                                .padding(.horizontal, 100)
-                            //                                .background(.blue)
-                            //                                .clipShape(RoundedRectangle(cornerRadius: 70))
-                            //                                .foregroundStyle(.white)
-                            
-//                        }
+                          
                         TextField("名前を入力", text: $viewModel.players[index].name)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 35))
@@ -126,7 +121,7 @@ struct PlayerView: View {
                     Text("Next")
                     Image(systemName: "chevron.forward")
                 }
-                .font(.system(size: 50))
+                .font(.system(size: 45))
                 .padding(30)
                 .background(.blue)
                 .clipShape(RoundedRectangle(cornerRadius: 40))

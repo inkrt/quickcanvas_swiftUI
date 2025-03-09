@@ -8,6 +8,9 @@
 import SwiftUI
 
 @main
+
+
+
 struct QuickCanvasApp: App {
     var body: some Scene {
         WindowGroup {

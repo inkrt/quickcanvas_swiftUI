@@ -25,30 +25,12 @@ struct DivideView: View {
                                     .resizable()
                                     .frame(width: 200,height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 70))
-                                //                                Text("?")
-                                //                                    .font(.system(size: 150))
-                                //                                    .padding(.vertical, 50)
-                                //                                    .padding(.horizontal, 100)
-                                //                                    .background(.blue)
-                                //                                    .clipShape(RoundedRectangle(cornerRadius: 70))
-                                //                                    .foregroundStyle(.white)
-                                //
+                               
                                 
                                 Text(viewModel.drawers[index].name)
                                     .font(.system(size: 50))
                                     .foregroundStyle(viewModel.drawers[index].color)
-                                
-                                //                            Button{
-                                //
-                                //                            }label: {
-                                //                                Image(systemName: "scribble.variable")
-                                //                                    .font(.system(size: 40))
-                                //                                    .padding(.vertical, 30)
-                                //                                    .padding(.horizontal, 40)
-                                //                                    .clipShape(RoundedRectangle(cornerRadius: 70))
-                                //                                    .foregroundStyle(viewModel.drawers[index].color)
-                                //                            }
-                                //
+                             
                                 
                             }
                             
@@ -65,30 +47,11 @@ struct DivideView: View {
                             .resizable()
                             .frame(width: 330,height: 330)
                             .clipShape(RoundedRectangle(cornerRadius: 70))
-                        //                        Text("?")
-                        //                            .font(.system(size: 150))
-                        //                            .padding(.vertical, 50)
-                        //                            .padding(.horizontal, 100)
-                        //                            .background(.blue)
-                        //                            .clipShape(RoundedRectangle(cornerRadius: 70))
-                        //                            .foregroundStyle(.white)
-                        
-                        
+                      
                         Text(viewModel.answerer.name)
                             .font(.system(size: 70))
                             .foregroundStyle(viewModel.answerer.color)
-                        
-                        //                    Button{
-                        //
-                        //                    }label: {
-                        //                        Image(systemName: "scribble.variable")
-                        //                            .font(.system(size: 40))
-                        //                            .padding(.vertical, 30)
-                        //                            .padding(.horizontal, 40)
-                        //                            .clipShape(RoundedRectangle(cornerRadius: 70))
-                        //                            .foregroundStyle(viewModel.answerer.color)
-                        //                    }
-                        
+                      
                         
                     }
                 }
